@@ -3,9 +3,7 @@ package com.example.widgets;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("sol", "Next");
                 if (colorsIter.hasNext()) {
                     int color = colorsIter.next();
                     ColorDrawable background = (ColorDrawable) imageView.getBackground();
