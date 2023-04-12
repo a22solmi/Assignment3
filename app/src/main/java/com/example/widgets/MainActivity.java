@@ -1,6 +1,7 @@
 package com.example.widgets;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ImageView imageView = findViewById(R.id.my_image);
+        final ConstraintLayout layout = findViewById(R.id.layout);
 
         List<Integer> colors = new LinkedList<>();
         colors.add(getResources().getColor(R.color.red));
@@ -33,34 +34,32 @@ public class MainActivity extends AppCompatActivity {
         colorsIter.next();
 
         final Button button_next = findViewById(R.id.button_next);
-        button_next.setText(R.string.next);
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (colorsIter.hasNext()) {
                     int color = colorsIter.next();
-                    ColorDrawable background = (ColorDrawable) imageView.getBackground();
+                    ColorDrawable background = (ColorDrawable) layout.getBackground();
                     if (color == background.getColor()) {
                         onClick(button_next);
                     } else {
-                        imageView.setBackgroundColor(color);
+                        layout.setBackgroundColor(color);
                     }
                 }
             }
         });
 
         final Button button_prev = findViewById(R.id.button_previous);
-        button_prev.setText(R.string.prev);
         button_prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (colorsIter.hasPrevious()) {
                     int color = colorsIter.previous();
-                    ColorDrawable background = (ColorDrawable) imageView.getBackground();
+                    ColorDrawable background = (ColorDrawable) layout.getBackground();
                     if (color == background.getColor()) {
                         onClick(button_prev);
                     } else {
-                        imageView.setBackgroundColor(color);
+                        layout.setBackgroundColor(color);
                     }
                 }
             }
