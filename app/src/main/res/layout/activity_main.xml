@@ -5,15 +5,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/red">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Color!"
+        android:text="@string/color"
         android:textSize="60sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/my_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +25,7 @@
         android:id="@+id/barrier"
         app:barrierDirection="top"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="button_previous,button_next" />
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/button_previous"
